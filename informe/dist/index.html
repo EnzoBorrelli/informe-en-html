@@ -1,0 +1,259 @@
+<!--Informe de proyecto en HTML y CSS, hecho por Enzo G. Borrelli A. para E.E.S.T N°5, temperley.-->
+<!--Usar preferiblemente con la extension para HTML: live web server (ID:ritwickdey.LiveServer)-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>informe</title>
+  <link rel="stylesheet" href="./style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav>
+  <a class="nat" style="--clr:#78e0f7"href="#sec-1"data-text="Introducción">Introducción</a>
+  <a class="nat" style="--clr:#5ae3ba"href="#sec-3"data-text="Codigo">Codigo</a>
+  <a class="nat" style="--clr:#3942db"href="#sec-4"data-text="Esquematico">Esquematico</a>
+  <a class="nat" style="--clr:#ff82d9"href="#sec-5"data-text="PCB">PCB</a>
+  </nav>
+
+<section id="sec-1">
+  <h1>Vehiculo RC (RadioControl)</h1>
+  <div class="content">
+        <div class="left">
+  <div class="cards-grid">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front" style="background-image: url(https://github.com/EnzoBorrelli/data-html/blob/main/fotos/WhatsApp%20Image%202022-11-28%20at%2010.37.52.jpeg?raw=true);"></div>
+        <div class="flip-card-back">
+    Es un vehiculo a radiocontrol que puede avanzar, retroceder, y girar para ambos lados.  Este es controlado mediante Bluetooth y el mando DUALSHOCK 3®, usando una libreria especificamente diseñada. <a class="pass" href="#sec-3">Más información</a>
+      
+        </div>
+      </div>
+    </div>
+       <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front" style="background-image: url(https://github.com/EnzoBorrelli/data-html/blob/main/fotos/WhatsApp%20Image%202022-11-28%20at%2010.37.56.jpeg?raw=true);"></div>
+        <div class="flip-card-back">
+       Se compone de dos motores, uno maneja la velocidad lineal y el otro la dirección. Estos se controlan a travez de un L298N(puente H) integrado en la misma placa; ademas del microcontrolador nodeMCU ESP32-s, con el cual se realiza la conexion via bluetooth hacia el DUALSHOCK3®
+          <a class="pass" href="#sec-4">más información</a>
+        </div>
+      </div>
+    </div>
+  </div>
+          </div>
+    <div class="right">
+  <iframe width="500" height="700" src="https://www.youtube.com/embed/tNN0nkeJgTE?autoplay=1" title="" frameborder="0" allow=" autoplay" ></iframe>
+    </div>
+    </section>
+<section id="sec-3">
+  <h2>Codigo</h2>
+  <p> Debera incluirse la libreria <a target="_blank "class="link" href="https://github.com/jvpernis/esp32-ps3">PS3-HOST</a> , propiedad de <a target="_blank " class="link" href="https://github.com/jvpernis">jvpernis</a>
+    
+  </p>
+  <div class="contenedor">
+		<pre>
+
+<span class="define">#define</span> <span class="defineText">PIN_IN_1</span><span class="defineNum"> 19</span>
+<span class="define">#define</span> <span class="defineText">PIN_IN_2</span> <span class="defineNum">21</span>
+<span class="define">#define</span> <span class="defineText">PIN_IN_ENA</span> <span class="defineNum">0</span>
+<span class="define">#define</span> <span class="defineText">PIN_IN_3</span> </span> <span class="defineNum">2</span>
+<span class="define">#define</span> <span class="defineText">PIN_IN_3</span> <span class="defineNum">15</span>
+<span class="define">#define</span> <span class="defineText">PIN_IN_ENB</span> <span class="defineNum">18</span>
+<span class="define">#define</span> <span class="defineText">LED_ON</span> <span class="defineNum">32</span>
+<span class="defineNum">void</span> <span class="defineText">MotorHorario</span>()
+{
+  <span class="defineText">digitalWrite</span>  (PIN_IN_1, HIGH);
+  <span class="defineText">digitalWrite</span>  (PIN_IN_2, LOW);
+    }
+<span class="defineNum">void</span> <span class="defineText">MotorAntiHorario</span>()
+{
+    <span class="defineText">digitalWrite</span> (PIN_IN_1, LOW);
+  <span class="defineText">digitalWrite</span>  (PIN_IN_2, HIGH);
+}
+
+<span class="defineNum">void</span> <span class="defineText">MotordiereccionIZQ</span>(){
+  <span class="defineText">digitalWrite</span>  (PIN_IN_3, HIGH);
+  <span class="defineText">digitalWrite</span>  (PIN_IN_4, LOW);
+}
+
+<span class="defineNum">void</span> <span class="defineText">Motordiereccion</span>(){
+  <span class="defineText">digitalWrite</span>  (PIN_IN_3, LOW);
+  <span class="defineText">digitalWrite</span>  (PIN_IN_4, HIGH);
+}
+
+<span class="defineNum">void</span> <span class="defineText">MotorStop</span>()
+{
+  <span class="defineText">digitalWrite</span>  (PIN_IN_1, LOW);
+  <span class="defineText">digitalWrite</span>  (PIN_IN_2, LOW);
+}
+    <span class="defineNum">void</span> <span class="defineText">MotorStopD</span>(){
+  <span class="defineText">digitalWrite</span>  (PIN_IN_3, LOW);
+  <span class="defineText">digitalWrite</span>  (PIN_IN_4, LOW);
+}
+
+<span class="defineNum">void</span> <span class="defineText">notify</span>()
+{  
+    <span class="comments"> //-------------- Digital trigger button events -------------</span>
+    <span class="define">if</span>( Ps3.event.button_down.l2 )
+       <span class="defineText">MotorAntihorario</span>();
+    <span class="define">if</span>( Ps3.event.button_up.l2 )
+       <span class="defineText">MotorStop</span>();
+    <span class="define">if</span>( Ps3.event.button_down.r2 )
+       <span class="defineText">MotorHorario</span>();
+      <span class="define">if</span>( Ps3.event.button_up.r2 )
+      <span class="defineText">MotorStop</span>();
+   <span class="comments">//---------- Analog shoulder/trigger button events ----------</span>
+   <span class="define">if</span>( abs(Ps3.event.analog_changed.button.l2) ){
+       <span class="defineText">Serial.print</span>("Pressing the left trigger button: ");
+       <span class="defineText">Serial.println</span>(Ps3.data.analog.button.l2, DEC);
+   }
+
+   <span class="define">if</span>( abs(Ps3.event.analog_changed.button.r2) ){
+       <span class="defineText">Serial.print</span>("Pressing the right trigger button: ");
+       <span class="defineText">Serial.println</span>(Ps3.data.analog.button.r2, DEC);
+   }
+   <span class="define">if</span>( abs(Ps3.event.analog_changed.stick.lx) + abs(Ps3.event.analog_changed.stick.ly) > 2 ){
+      int x = Ps3.data.analog.stick.lx;
+      int POS; 
+       <span class="defineText">Serial.println</span>(x); 
+   <span class="define">if</span> (x == -128){
+      <span class="defineText">MotordiereccionIZQ</span>();
+      POS = 1;
+   } 
+   <span class="define">if</span> (x == 127) {
+     <span class="defineText">Motordiereccion</span>();
+    POS = 2;
+   }
+   <span class="define">if</span>(x == 0) {
+   <span class="define">if</span>(POS == 1){
+     <span class="defineText">Motordiereccion</span>();
+     <span class="defineText">MotorStopD</span>();
+     POS = 0; 
+   }
+   <span class="define">if</span> (POS == 2){
+     <span class="defineText">MotordiereccionIZQ</span>();
+     <span class="defineText">MotorStopD</span>();
+     POS = 0;
+  
+   } 
+   }
+    }
+}
+<span class="defineNum">void</span> <span class="defineText">onConnect</span>(){
+    <span class="defineText">Serial.println</span>("Connected.");
+    <span class="defineText">digitalWrite</span>(LED_ON, HIGH);
+}
+
+<span class="defineNum">void</span> <span class="defineText">setup</span>(){
+    <span class="defineText">Serial.begin</span>(115200);
+
+    Ps3.attach(notify);
+    Ps3.attachOnConnect(onConnect);
+    Ps3.begin("c0:38:96:af:ac:b9");
+
+    <span class="defineText">Serial.println</span>("Ready.");
+    <span class="defineText">pinMode</span>(LED_ON, OUTPUT);
+  <span class="defineText">pinMode</span>(PIN_IN_1, OUTPUT);
+  <span class="defineText">pinMode</span>(PIN_IN_2, OUTPUT);
+  <span class="defineText">pinMode</span>(PIN_IN_ENA, OUTPUT);
+  <span class="defineText">pinMode</span>(PIN_IN_3, OUTPUT);
+  <span class="defineText">pinMode</span>(PIN_IN_4, OUTPUT);
+  <span class="defineText">pinMode</span>(PIN_IN_ENB, OUTPUT);
+
+  <span class="defineText">digitalWrite</span> (PIN_IN_ENA, HIGH);
+  <span class="defineText">digitalWrite</span> (PIN_IN_ENB, HIGH);
+}
+
+<span class="defineNum">void</span> <span class="defineText">loop</span>()
+{
+    <span class="define">if</span>(!Ps3.isConnected())
+    <span class="define">return</span>;  
+    <span class="defineText">delay</span>(2000);
+}
+
+</pre>
+	</div>
+  </section>
+<section id="sec-4">
+  <h3>Esquematico</h3>
+  <p><span class="p2">Para obtener el esquematico entero, puede pulsar</span> <a target="_blank "class="link" href="https://github.com/EnzoBorrelli/data-html/blob/main/kicad/Naza_Atuo/Naza%20Atuo.pdf">aqui</a>.<span class="p2"> En este apartado se detallará lo mas importante</span> </p>
+  <div class="content">
+        <div class="left">
+  <div class="cards-grid">
+    <div class="flip-card2">
+      <div class="flip-card-inner2">
+        <div class="flip-card-front2" style="background-image: url(https://github.com/EnzoBorrelli/data-html/blob/main/fotos/driver.PNG?raw=true);"></div>
+        <div class="flip-card-back2">
+     Driver puente H L298N,se usa para manejar motores DC de hasta 2 amperios. El chip L298N internamente posee dos puentes H completos que permiten controlar 2 motores DC.
+
+El módulo permite controlar el sentido y velocidad de giro de motores mediante señales TTL que se pueden obtener de microcontroladores y tarjetas de desarrollo como Arduino. El control del sentido de giro se realiza mediante dos pines para cada motor, la velocidad de giro se regula por PWM. <a target="_blank" class="pass" href="https://naylampmechatronics.com/drivers/11-driver-puente-h-l298n.html">Info sobre el  modulo Driver</a> <a class="pass" href="https://www.st.com/resource/en/datasheet/l298.pdf">Datasheet integrado L298n</a>
+      
+        </div>
+      </div>
+    </div>
+       <div class="flip-card3">
+      <div class="flip-card-inner3">
+        <div class="flip-card-front3" style="background-image: url(https://github.com/EnzoBorrelli/data-html/blob/main/fotos/tension.PNG?raw=true);"></div>
+        <div class="flip-card-back3">
+       El LM7805 es un regulador de voltaje con salida fija de 5 volts.Muy popular debido a su bajo costo y facilidad de uso, ya que solamente requiere un par de capacitores externos para funcionar. Suele encontrarse dentro del modulo driver L298n. Se le fue incluido un led para indicar cuando esta en funcionamiento.
+          <a target="_blank" class="pass" href="https://cdn.geekfactory.mx/integrados/L7805.pdf">Datasheet de LM7805</a>
+        </div>
+      </div>
+    </div>
+  </div>
+          </div>
+    <div class="right">
+ <div class="flip-card4">
+      <div class="flip-card-inner4">
+        <div class="flip-card-front4" style="background-image: url(https://github.com/EnzoBorrelli/data-html/blob/main/fotos/esp.PNG?raw=true);"></div>
+        <div class="flip-card-back4">
+    Placa de desarrollo Dual-core de Espressif Systems, puede ser utilizada con Arduino(c++) y Python. Trae incluido Bluetooth y WiFi. ES utilizada en este proyecto ya que es capaz de manejar direcciones MAC, necesarias para la conexion con el sistema del mando DUALSHOCK3®. En este esquema se encuentran incluidos elementos que se descartaron momentaneamente, como lo es el servo el cual originalmente se utilizaria para la dirección. Se espera que estos elementos se reincorporen mas adelante. <a target="-blank" class="pass" href="https://www.studiopieters.nl/esp32-pinout/">PinOut de la placa</a>
+          <a target="-blank" class="pass" href="https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf">Datasheet de ESP32</a>
+      
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+<section id="sec-5">
+  <h4>Placa de circuito Impreso(PCB)</h4>
+        <div class="PCB-grid">
+          <div class="contentPCB">
+            <div class="PCB-Bcu">
+            <div class="Bcu">
+                <div class="Bcu-IN">
+                    <div class="Bcu-front" style="background-image: url(https://github.com/EnzoBorrelli/data-html/blob/main/fotos/bcu.PNG?raw=true);">
+ <div class="PCBtext">
+                  <h5>Capa B_CU</h5>  
+                  </div>
+                    </div>
+               
+                </div>
+            </div>
+</div> <div class="PCB-Fcu">
+            <div class="Fcu">
+                <div class="Fcu-IN">
+
+                    <div class="Fcu-front" style="background-image: url(https://github.com/EnzoBorrelli/data-html/blob/main/fotos/fcu.PNG?raw=true);">
+                  <div class="PCBtext">
+                  <h5>Capa F_CU</h5>  
+                  </div>
+                    </div>
+             
+                </div>
+            </div>
+          </div>
+            </div>
+          </div>
+  <div class="botonfix">
+  <h6>Para ver todos los archivos pertenecientes al proyecto, puede dirigirse al repositorio de <a target="_blank" class="github" href="https://github.com/EnzoBorrelli/data-html" data-text="GitHub">GitHub</h6>
+    </div>
+  </section>
+<!-- partial -->
+  
+</body>
+</html>
