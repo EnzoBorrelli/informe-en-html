@@ -554,8 +554,317 @@ h6{
 .github:hover::before{
   width:100%;
 }
+@media screen and (min-width: 350px) and (max-width: 385px) 
+and (orientation: portrait) {
 
-@media screen and (max-width: 480px) {
+  h1{
+    font-size:140%;
+  }
+  .flip-card{
+    margin-left:-10px;
+    width:240px;
+    height:120px;
+  }
+  iframe{
+    margin-left:-40px;
+    width:180px;
+    height:300px;
+  }
+  .content{
+    flex-direction:column;
+  }
+  .left{
+    margin-left:50px;
+  }
+  .right{
+    margin-left:120px;
+  }
+  .flip-card-back{
+    padding:1px;
+    font-size:0.6rem;
+    text-align: center;
+  display: grid;
+  place-items: center stretch;
+  }
+  nav{
+    width:100%;
+    height:40px;
+  }
+  a{
+    font-size:95%;
+  }
+  h2{
+    font-size:200%;
+  }
+  pre{
+    font-size:80%;
+  }
+  .contenedor {
+    width: 80%;
+    height: 500px;
+    overflow-x: scroll;
+  }
+  h3{
+    font-size:170%;
+  }
+  p2{
+    margin-top:-40px;
+    width:100%;
+    font: size 0.8em;
+  }
+  .flip-card2{
+    
+    margin-left:-20px;
+    width:270px;
+    height:120px;
+  }
+  .flip-card3{
+    margin-top:-5px;
+    margin-left:-30px;
+    width:280px;
+    height:120px;
+  }
+  .flip-card4{
+    margin-left:-50px;
+    margin-top:-15px;
+    width:200px;
+    height:1400%;
+  }
+  .flip-card-back2{
+    padding:10px;
+    font-size:50%;
+    text-align: left;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-back3{
+    padding:10px;
+    font-size:0.6rem;
+    text-align: left;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-back4{
+    padding:10px;
+    font-size:55%;
+    text-align: left;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-front2{
+    background-size: 330px 120px;
+  }
+  .flip-card-front3{
+    background-size: 230px 100px;
+  }
+  .flip-card-front4{
+    background-size: 210px 200px;
+  }
+  
+  .Bcu {
+    margin-top: 70px;
+    width: 330px;
+    height: 150px;
+    
+  }
+  
+  .Fcu {
+    
+    margin: 10px;
+    margin-top: 70px;
+    width: 330px;
+    height: 150px;
+    /*visibility:hidden;*/
+    
+  }
+ 
+  .content-PCB{
+    display:block;
+    
+  }
+  .PCB-Bcu {
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-left: -30px;
+    float: left;
+    position: relative;
+    width: 45%;
+    height: auto;
+}
+.Bcu-front{
+  background-size: 340px 140px;
+}
+.PCB-Fcu {
+  padding-top: 180px;
+  margin-left: -140px;
+  float: left;
+  position: relative;
+  width: 45%;
+  height: auto;
+}
+.Fcu-front{
+background-size: 340px 140px;
+}
+h4{
+  font-size:30px;
+}
+h6{
+  margin-top:-20px;
+  font-size:20px;
+}
+}
+@media screen and (min-width: 400px) and (max-width: 430px) 
+and (orientation: portrait) {
+
+  h1{
+    font-size:150%;
+  }
+  .flip-card{
+    margin-left:-10px;
+    width:300px;
+    height:150px;
+  }
+  iframe{
+    margin-left:-40px;
+    width:200px;
+    height:400px;
+  }
+  .content{
+    flex-direction:column;
+  }
+  .left{
+    margin-left:50px;
+  }
+  .right{
+    margin-left:120px;
+  }
+  .flip-card-back{
+    font-size:0.6rem;
+    text-align: left;
+  display: grid;
+  place-items: center stretch;
+  }
+  nav{
+    width:100%;
+    height:40px;
+  }
+  a{
+    font-size:100%;
+  }
+  h2{
+    font-size:200%;
+  }
+  .contenedor {
+    width: 80%;
+    height: 500px;
+    overflow-x: scroll;
+  }
+  h3{
+    font-size:200%;
+  }
+  p2{
+    width:100%;
+    font: size 0.8em;
+  }
+  .flip-card2{
+    
+    margin-left:-10px;
+    width:300px;
+    height:150px;
+  }
+  .flip-card3{
+    margin-top:-5px;
+    margin-left:-10px;
+    width:300px;
+    height:150px;
+  }
+  .flip-card4{
+    margin-left:-20px;
+    margin-top:-15px;
+    width:200px;
+    height:300px;
+  }
+  .flip-card-back2{
+    padding:10px;
+    font-size:0.6rem;
+    text-align: left;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-back3{
+    padding:10px;
+    font-size:0.6rem;
+    text-align: left;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-back4{
+    padding:10px;
+    font-size:0.6rem;
+    text-align: left;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-front2{
+    background-size: 330px 120px;
+  }
+  .flip-card-front3{
+    background-size: 230px 100px;
+  }
+  .flip-card-front4{
+    background-size: 210px 200px;
+  }
+  
+  .Bcu {
+    margin-top: 70px;
+    width: 350px;
+    height: 150px;
+    
+  }
+  
+  .Fcu {
+    
+    margin: 10px;
+    margin-top: 70px;
+    width: 350px;
+    height: 150px;
+    /*visibility:hidden;*/
+    
+  }
+ 
+  .content-PCB{
+    display:block;
+    
+  }
+  .PCB-Bcu {
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-left: -20px;
+    float: left;
+    position: relative;
+    width: 45%;
+    height: auto;
+}
+.Bcu-front{
+  background-size: 340px 140px;
+}
+.PCB-Fcu {
+  padding-top: 180px;
+  margin-left: -170px;
+  float: left;
+  position: relative;
+  width: 45%;
+  height: auto;
+}
+.Fcu-front{
+background-size: 340px 140px;
+}
+h4{
+  font-size:30px;
+}
+}
+@media screen and (min-width: 480px) and (max-width: 480px) 
+and (orientation: portrait){
 
   h1{
     font-size:150%;
@@ -693,22 +1002,22 @@ h6{
 background-size: 340px 140px;
 }
 }
-@media screen and (max-width: 720px) {
+@media screen and (min-width: 1250px)and (max-width: 1280px) {
 
   h1{
-    font-size:150%;
+    margin-top:70px;
+    font-size:50px;
   }
   .flip-card{
-    width:300px;
-    height:150px;
+    width:450px;
+    height:250px;
   }
   iframe{
-    width:200px;
-    height:400px;
+    margin-top:10px;
+    width:350px;
+    height:550px;
   }
-  .content{
-    flex-direction:column;
-  }
+  
   .left{
     margin-left:50px;
   }
@@ -716,20 +1025,21 @@ background-size: 340px 140px;
     margin-left:120px;
   }
   .flip-card-back{
-    font-size:0.6rem;
-    text-align: left;
+    font-size:1.15rem;
+    text-align: center;
   display: grid;
   place-items: center stretch;
   }
   nav{
     width:100%;
-    height:40px;
+    height:70px;
   }
   a{
-    font-size:120%;
+    font-size:200%;
   }
   h2{
-    font-size:200%;
+    margin-top:70px;
+    font-size:50px;
   }
   .contenedor {
     width: 80%;
@@ -737,68 +1047,71 @@ background-size: 340px 140px;
     overflow-x: scroll;
   }
   h3{
-    font-size:200%;
+    margin-top:70px;
+    font-size:50px;
   }
   p2{
     width:100%;
-    font: size 0.8em;
+    font-size:100%;
   }
   .flip-card2{
-    width:300px;
-    height:150px;
+    width:420px;
+    height:220px;
   }
   .flip-card3{
-    width:280px;
-    height:130px;
+    width:460px;
+    height:210px;
   }
   .flip-card4{
-    width:200px;
-    height:300px;
+    width:280px;
+    height:460px;
   }
   .flip-card-back2{
     padding:10px;
-    font-size:0.6rem;
-    text-align: left;
+    font-size:0.75rem;
+    text-align: center;
   display: grid;
   place-items: center stretch;
   }
   .flip-card-back3{
     padding:10px;
-    font-size:0.6rem;
-    text-align: left;
+    font-size:1rem;
+    text-align: center;
   display: grid;
   place-items: center stretch;
   }
   .flip-card-back4{
     padding:10px;
-    font-size:0.6rem;
-    text-align: left;
+    font-size:0.9rem;
+    text-align: center;
   display: grid;
   place-items: center stretch;
   }
   .flip-card-front2{
-    background-size: 330px 120px;
+    background-position: left;
+    background-size: 420px 210px;
   }
   .flip-card-front3{
-    background-size: 230px 100px;
+    background-size: 430px 200px;
   }
   .flip-card-front4{
-    background-size: 210px 200px;
+    background-size: 300px 420px;
   }
   
   .Bcu {
     margin-top: 70px;
-    width: 350px;
-    height: 150px;
+    margin-bottom:-20px;
+    width: 450px;
+    height: 250px;
     
   }
   
   .Fcu {
-    
+    margin-bottom:-20px;
     margin: 10px;
     margin-top: 70px;
-    width: 350px;
-    height: 150px;
+    width: 450px;
+    height: 250px;
     /*visibility:hidden;*/
     
   }
@@ -807,27 +1120,146 @@ background-size: 340px 140px;
     display:block;
     
   }
-  .PCB-Bcu {
-    padding-left: 10px;
-    padding-top: 10px;
-    margin-left: 0px;
-    float: left;
-    position: relative;
-    width: 45%;
-    height: auto;
-}
+
 .Bcu-front{
-  background-size: 340px 140px;
+  background-size: 440px 240px;
 }
-.PCB-Fcu {
-  padding-top: 180px;
-  margin-left: -180px;
-  float: left;
-  position: relative;
-  width: 45%;
-  height: auto;
-}
+
 .Fcu-front{
-background-size: 340px 140px;
+background-size: 440px 240px;
+}
+h4{
+  margin-top:90px;
 }
 }
+@media screen and (min-width: 1340px) and (max-width: 1440px) {
+
+  h1{
+    margin-top:70px;
+    font-size:50px;
+  }
+  .flip-card{
+    margin:70px;
+    width:450px;
+    height:250px;
+  }
+  iframe{
+    margin-top:30px;
+    width:350px;
+    height:640px;
+  }
+  
+  .left{
+    margin-left:50px;
+  }
+  .right{
+    margin-left:120px;
+  }
+  .flip-card-back{
+    font-size:1.15rem;
+    text-align: center;
+  display: grid;
+  place-items: center stretch;
+  }
+  nav{
+    width:100%;
+    height:70px;
+  }
+  a{
+    font-size:200%;
+  }
+  h2{
+    margin-top:70px;
+    font-size:50px;
+  }
+  .contenedor {
+    width: 80%;
+    height: 500px;
+    overflow-x: scroll;
+  }
+  h3{
+    margin-top:70px;
+    font-size:50px;
+  }
+  p2{
+    width:100%;
+    font-size:100%;
+  }
+  .flip-card2{
+    width:450px;
+    height:250px;
+  }
+  .flip-card3{
+    width:480px;
+    height:230px;
+  }
+  .flip-card4{
+    width:300px;
+    height:500px;
+  }
+  .flip-card-back2{
+    padding:10px;
+    font-size:0.75rem;
+    text-align: center;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-back3{
+    padding:10px;
+    font-size:1rem;
+    text-align: center;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-back4{
+    padding:10px;
+    font-size:1rem;
+    text-align: center;
+  display: grid;
+  place-items: center stretch;
+  }
+  .flip-card-front2{
+    background-position: left;
+    background-size: 450px 240px;
+  }
+  .flip-card-front3{
+    background-size: 430px 200px;
+  }
+  .flip-card-front4{
+    background-size: 320px 420px;
+  }
+  
+  .Bcu {
+    margin-top: 70px;
+    width: 450px;
+    height: 250px;
+    
+  }
+  
+  .Fcu {
+    
+    margin: 10px;
+    margin-top: 70px;
+    width: 450px;
+    height: 250px;
+    /*visibility:hidden;*/
+    
+  }
+ 
+  .content-PCB{
+    display:block;
+    
+  }
+
+.Bcu-front{
+  background-size: 440px 240px;
+}
+
+.Fcu-front{
+background-size: 440px 240px;
+}
+h4{
+  margin-top:90px;
+}
+}
+
